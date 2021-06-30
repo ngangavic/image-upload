@@ -1,14 +1,20 @@
 package com.example.imageupload
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.databinding.DataBindingUtil
 import com.example.imageupload.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +35,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun openImages() {
         imageAdapter = ImageAdapter(uriArray as ArrayList<ImageModel>, this)
-        val dialogDisplayMultipleImages = DialogDisplayMultipleImages(imageAdapter)
+        val dialogDisplayMultipleImages = DialogDisplayMultipleImages(imageAdapter,
+            uriArray as ArrayList<ImageModel>
+        )
         dialogDisplayMultipleImages.show(supportFragmentManager, "show images")
     }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Image Upload</string>
+    <string name="channel_name">upload</string>
+    <string name="channel_description">upload notification</string>
 </resources>
